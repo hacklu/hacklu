@@ -1,7 +1,5 @@
-#
-# ~/.bashrc
-#
-
+export LANG="zh_CN.UTF-8"
+#export LC_ALL="zh_CN.UTF-8"
 # If not running interactively, don't do anything
 #[[ $- != *i* ]] && return
 
@@ -10,10 +8,7 @@ alias ll='ls -lah'
 alias vi='vim'
 alias p='pacman'
 alias c='clear'
+alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-source ~/.bashrc
-# for fcitx
-#export XMODIFIERS=@im=fcitx
-#export GTK_IM_MODULE=xim
-#export QT_IM_MODULE=xim
-#fcitx &
+
+#[ -r /etc/bash_completion   ] && . /etc/bash_completion

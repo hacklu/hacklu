@@ -4,3 +4,10 @@
 [github]
 	user = hacklu
 	token = bd0217f51299ed090c0ef6dbba0f4e2f
+[color]
+	status = auto
+	branch = auto
+	ui = auto
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
