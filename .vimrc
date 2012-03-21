@@ -163,3 +163,6 @@ set ff=unix
 set tags=tags;
 set autochdir
 map <silent> <F2> :TlistToggle<cr>
+map <silent> <F4> :set mouse=<cr>
+
+colorscheme darkblue
