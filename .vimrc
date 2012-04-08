@@ -165,4 +165,5 @@ set autochdir
 map <silent> <F2> :TlistToggle<cr>
 map <silent> <F4> :set mouse=<cr>
 
-colorscheme darkblue
+colorscheme darkburn
+set t_Co=256

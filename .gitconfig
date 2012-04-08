@@ -10,4 +10,4 @@
 	ui = auto
 	diff = auto
 [core]
-	edit=vim
+	editor=vim
