@@ -11,3 +11,5 @@
 	diff = auto
 [core]
 	editor=vim
+[core]
+	editor = vim

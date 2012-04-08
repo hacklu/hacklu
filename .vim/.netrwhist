@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/hacklu/sdk/OCTEON-SDK-1.8.1/linux/embedded_rootfs/config'
-let g:netrw_dirhist_2='/home/hacklu/sdk/OCTEON-SDK-1.8.1/linux/embedded_rootfs/pkg_makefiles'
-let g:netrw_dirhist_3='/home/hacklu/sdk/.git/info'
-let g:netrw_dirhist_4='/home/hacklu/code/linux-next'
-let g:netrw_dirhist_5='/etc'
-let g:netrw_dirhist_6='/etc/httpd/build'
-let g:netrw_dirhist_7='/etc/httpd/conf'

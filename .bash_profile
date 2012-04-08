@@ -13,3 +13,8 @@ alias c='clear'
 alias grep='grep --color'
 PS1='[\u@\h \W]\$ '
 source ~/.bashrc
+# for fcitx
+#export XMODIFIERS=@im=fcitx
+#export GTK_IM_MODULE=xim
+#export QT_IM_MODULE=xim
+#fcitx &
