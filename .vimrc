@@ -17,8 +17,19 @@ endif
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 
-set encoding=utf-8
+
 set fileencodings=utf-8,chinese,latin-1
+if has("win32")
+	set fileencodings=chinese
+	set guioptions=
+else
+	set encoding=utf-8
+	set ff=unix
+	set tags=tags
+	map<silent> <F2> :TlistToggle<cr>
+	colorscheme darkburn
+endif
+
 " 在输入模式下移动光标，彻底抛弃方向键 大爱！！！！！！
 inoremap <C-h> <left>
 inoremap <C-j> <C-o>gj
@@ -116,8 +127,7 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
-set ff=unix
-"colorscheme navajo
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 "cscope setting 
@@ -160,10 +170,13 @@ set ff=unix
 "nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 "nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-set tags=tags;
+
 set autochdir
-map <silent> <F2> :TlistToggle<cr>
+
 map <silent> <F4> :set mouse=<cr>
 
-colorscheme darkburn
+
 set t_Co=256
+"NERD_commenter.vim
+map <silent> <F5> ,cc 
+map <silent> <F6> ,cu
