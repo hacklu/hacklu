@@ -1,15 +1,12 @@
-<<<<<<< HEAD
 #
 # ~/.bashrc
 #
 
-export LANG="zh_CN.UTF-8"
 #export LC_ALL="zh_CN.UTF-8"
 # If not running interactively, don't do anything
 #[[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-<<<<<<< HEAD
 alias ll='ls -la'
 alias vi='vim'
 alias p='pacman'

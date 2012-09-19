@@ -11,5 +11,7 @@
 	diff = auto
 [core]
 	editor=vim
-[core]
-	editor = vim
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cred%cn' --abbrev-commit --date=relative
+	st = status
+
