@@ -181,3 +181,6 @@ set t_Co=256
 let mapleader=","
 map <silent> <F5> ,cc 
 map <silent> <F6> ,cu
+
+map <F3> :%!xxd <cr>
+map <F4> :%!xxd -r <cr>
