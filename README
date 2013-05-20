@@ -1,1 +1,8 @@
 this is hacklu's etc files...
+
+use like this:
+cd /home/hacklu 
+git clone git://github.com/hacklu/hacklu.git
+mv hacklu .hacklu
+echo "gitdir: /home/hacklu/.hacklu/.git" > .git
+git checkout .
