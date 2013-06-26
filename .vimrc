@@ -132,43 +132,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 "cscope setting 
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-"if exists("loaded_autoload_cscope_")
-"	finish
-"endif
-"let loaded_autoload_cscope_ = 1
-"function! LoadCscope()
-"	let db = findfile("cscope.out", ".;")
-"	if (!empty(db))
-"		let path = strpart(db, 0, match(db, "/cscope.out$"))
-"		"set nocsverbose " suppress 'duplicate connection' error
-"		execute "cs add " . db . " " . path
-"		"set csverbose
-"	endif
-"endfunction
-"au BufEnter /* call LoadCscope()
-
-"if has("cscope")
-"	set csprg=/usr/bin/cscope
-"	set csto=1
-"	set cst
-"	set nocsverb
-"	" add any database in current directory
-"	"	if filereadable("cscope.out")
-"	"		cs add cscope.out .
-"	"	elseif $CSCOPE_DB != ""
-"	"		cs add $CSCOPE_DB
-"	"	endif
-"	set csverb
-"endif
-" this move to autoload_cscope.vim
-"nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-"nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-"nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-"nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+"use plugin instead
 
 
 set autochdir

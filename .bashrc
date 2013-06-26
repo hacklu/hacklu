@@ -11,11 +11,12 @@ alias ll='ls -la'
 alias vi='vim'
 alias p='pacman'
 alias c='clear'
-PS1='[\u@\h \W]\$ '
-#命令提示行
-#Promote
-#PS1='-------------------------------------\n\u@\h:\w\$ '
-#Color Promote
-#PS1='\[\033[01;32m\]       -------------------------------------------------------\[\033[00m\]\n${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+alias tmux='TERM=xterm-256color tmux -2'
 alias grep='grep --color=auto'
 
+PS1='[\u@\h \W]\$ '
+
+export CCACHE_DIR="/home/hacklu/.ccache"
+export CC="ccache gcc"
+export CXX="ccache g++"
+export PATH="/usr/lib/ccache:$PATH"
