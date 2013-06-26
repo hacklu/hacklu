@@ -1,0 +1,27 @@
+#don't show welecome message 
+startup_message off
+
+#change ^A to ^B
+escape B
+
+#
+defscrollback 8888
+defutf8 on
+
+#show message on the bottom
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.bW}%-w%{.rY}%n %t%{-}%+w %=%{..G} %H(%l) %{..Y} %Y/%m/%d %c:%s "
+
+#turn off error beep
+vbell off
+
+#termcapinfo rxvt 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+
+#refresh the display when exiting programs
+altscreen on
+
+#bind <F7> to move to next window, <F8> to previous
+#bindkey -k k7 next
+#bindkey -k k9 prev
+
