@@ -14,6 +14,17 @@ if v:progname =~? "evim"
   finish
 endif
 
+set nocompatible
+"for vim Bundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'Lokaltog/vim-easymotion'
+
+
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 
@@ -48,7 +59,6 @@ let g:winManagerWindowLayout='FileExplorer|TagList'
 nmap wm :WMToggle<cr> " add by hacklu
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -148,3 +158,6 @@ map <silent> <F6> ,cu
 
 map <F3> :%!xxd <cr>
 map <F4> :%!xxd -r <cr>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
