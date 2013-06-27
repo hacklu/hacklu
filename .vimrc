@@ -15,21 +15,15 @@ if v:progname =~? "evim"
 endif
 
 set nocompatible
-"for vim Bundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-Bundle 'Lokaltog/vim-easymotion'
-
+"for vim Bundle (out)
+"filetype off
 
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
 
 
 set fileencodings=utf-8,chinese,latin-1
+
 if has("win32")
 	set fileencodings=chinese
 	set guioptions=
