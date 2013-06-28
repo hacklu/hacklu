@@ -157,3 +157,11 @@ map <F4> :%!xxd -r <cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
+
+"set EasyMotion Leader key to only one ,
+let mapleader=','
+let g:EasyMotion_leader_key ='<Leader>'
+
+"set ctrlp to ctrl-m
+let g:ctrlp_map = '<c-m>'
+"let g:ctrlp_cmd = 'CtrlM'‘
