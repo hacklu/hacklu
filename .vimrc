@@ -32,7 +32,9 @@ else
 	set ff=unix
 	set tags=tags
 	map<silent> <F2> :TlistToggle<cr>
-	colorscheme darkburn
+	"colorscheme darkburn
+	set background=dark
+	colorscheme solarized
 endif
 
 " 在输入模式下移动光标，彻底抛弃方向键 大爱！！！！！！
