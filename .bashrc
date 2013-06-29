@@ -11,12 +11,12 @@ alias ll='ls -la'
 alias vi='vim'
 alias p='pacman'
 alias c='clear'
-alias tmux='TERM=xterm-256color tmux -2'
+#alias tmux='TERM=xterm-256color tmux -2'
 alias grep='grep --color=auto'
 
 PS1='[\u@\h \W]\$ '
 
-export CCACHE_DIR="/home/hacklu/.ccache"
-export CC="ccache gcc"
-export CXX="ccache g++"
-export PATH="/usr/lib/ccache:$PATH"
+#export CCACHE_DIR="/home/hacklu/.ccache"
+#export CC="ccache gcc"
+#export CXX="ccache g++"
+#export PATH="/usr/lib/ccache:$PATH"
