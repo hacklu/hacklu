@@ -31,10 +31,11 @@ else
 	set encoding=utf-8
 	set ff=unix
 	set tags=tags
-	map<silent> <F2> :TlistToggle<cr>
+	map<silent> <F7> :TlistToggle<cr>
 	"colorscheme darkburn
 	set background=dark
-	colorscheme solarized
+	"colorscheme solarized
+	colorscheme default
 endif
 
 " 在输入模式下移动光标，彻底抛弃方向键 大爱！！！！！！
@@ -152,8 +153,8 @@ let mapleader=","
 map <silent> <F5> ,cc 
 map <silent> <F6> ,cu
 
-map <F3> :%!xxd <cr>
-map <F4> :%!xxd -r <cr>
+map <silent> <F3> :%!xxd <cr>
+map <silent> <F4> :%!xxd -r <cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
