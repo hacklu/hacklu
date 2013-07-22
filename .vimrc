@@ -162,6 +162,8 @@ cmap w!! w !sudo tee > /dev/null %
 "set EasyMotion Leader key to only one ,
 let mapleader=','
 let g:EasyMotion_leader_key ='<Leader>'
+hi link EasyMotionTarget ErrorMsg
+hi link EasyMotionShade Comment
 
 "set ctrlp to ctrl-m
 let g:ctrlp_map = '<c-m>'
