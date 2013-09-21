@@ -3,7 +3,6 @@ set header_cache= "~/.mutt/.cache/"
 set message_cachedir= "~/.mutt/.cache/"
 set certificate_file= "~/.mutt/certificates"
 
-#mailboxes =INBOX =family
 #mailboxes imaps://imap.tongji.edu.cn/INBOX imaps://imap.tongji.edu.cn/family
 set imap_check_subscribed  #this set the mutt to fecth all IMAP folders, so we don't need above two line
 
@@ -18,21 +17,35 @@ set mbox_type=Maildir
 set header=no
 set quit=ask-yes
 set delete #don't ask, just do!
-
 set move = no
-set indent_str="> "
 
-#打分
-##新信件+4分,主题包含“通知”的+2，主题包含 “Circulation” +3, 已经标记删除的 -5，上次没有读的 +1，包含 “believe”的 -10(垃圾广告！)。
-score "~N" +4
-score "~s 通知" +2
-score "~s Circulation" +3
-score "~D" -5
-score "~O" +1
-score "~s believe" -10
-#set sort = score
+##bind for index
+bind index gg first-entry
+bind index G last-entry
+bind index R group-reply
+bind index p recall-message
+# Ctrl-R to mark all as read
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+bind index <space>  collapse-thread
+##bind for pager
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+bind pager R  group-reply
+
+bind index,pager \Cf next-page
+bind index,pager \Cb previous-page
+bind index,pager N search-opposite
+
+bind compose p postpone-message
 set sort = threads
-set sort_aux = date
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+
 set pager_stop
 set fast_reply
 #当你按 "t" 或者 "D" 之类的标记操作时，是否自动把光标移动到下一封信件。
@@ -49,6 +62,8 @@ set fcc_attach
 set forward_format = "Fwd: %s"
 set include
 set forward_quote
+set indent_str="> "
+set recall=no  #don't ask recall-message when write new
 
 #地址簿
 set alias_file=~/.mutt/.mutt.alias
@@ -82,8 +97,6 @@ charset-hook !utf-8 gb2312
 #把mutt发送的from域作为sendmail发送邮件的sender(否则会用user@localdomian)
 set envelope_from=yes
 
-macro index G "!getmail\n" "Invoke getmail"
-macro pager G "!getmail\n" "Invoke getmail"
 set ascii_chars=yes
 set auto_tag = yes
 ignore "Authentication-Results:"
@@ -120,7 +133,7 @@ set rfc2047_parameters=yes #中文附件名乱码
 set tilde #will show a ~ at the bottom
 set delete=yes
 set sleep_time = 0  #speed up folders switch
-bind index "G" imap-fetch-mail
+bind index,pager "O" imap-fetch-mail
 bind index,pager  previous-page #rebind backspace, input as ctrl+v backspace in vim, looks like ^?, this called caret notation
 
 # Headers to ignore
@@ -132,9 +145,10 @@ macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
 # Ctrl-n, Ctrl-p to select next, previous folder.
 # # Ctrl-o to open selected folder.
-bind index,pager \CP sidebar-prev
-bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
 ## Shortcuts
 macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.mutt/tongji<enter><change-folder>!<enter>'
 macro index,pager <f6> '<sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
