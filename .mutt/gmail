@@ -1,0 +1,21 @@
+set imap_user = 'hacklu.newborn@gmail.com'
+
+set imap_pass=$my_pw_gmail
+
+set folder = "imaps://hacklu.newborn@imap.gmail.com"
+set spoolfile =+INBOX 
+#set postponed=+Drafts
+set postponed = +[Gmail]/Drafts
+#set record=+Sent
+unset record #gmail will auto-save to +[Gmail]/Send, so we don't want duplicates
+#####################################################
+#for SMTP send mail
+set smtp_url = "smtps://hacklu.newborn@smtp.gmail.com"
+set smtp_pass=$my_pw_gmail
+
+set from = "hacklu.newborn@gmail.com"
+set realname = 'Yue Lu'
+set use_from=yes
+
+## Hook -- IMPORTANT!
+account-hook $folder "set imap_user=hacklu.newborn@gmail.com imap_pass=$my_pw_gmail"
