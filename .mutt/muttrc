@@ -39,6 +39,8 @@ bind pager R  group-reply
 bind index,pager \Cf next-page
 bind index,pager \Cb previous-page
 bind index,pager N search-opposite
+bind index,pager \Cn next-entry
+bind index,pager \Cp previous-entry
 
 bind compose p postpone-message
 set sort = threads
