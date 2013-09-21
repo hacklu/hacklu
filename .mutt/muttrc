@@ -66,6 +66,8 @@ set include
 set forward_quote
 set indent_str="> "
 set recall=no  #don't ask recall-message when write new
+set signature=~/.mutt/signature
+set sig_dashes=no
 
 #地址簿
 set alias_file=~/.mutt/.mutt.alias
