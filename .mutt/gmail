@@ -3,7 +3,7 @@ set imap_user = 'hacklu.newborn@gmail.com'
 set imap_pass=$my_pw_gmail
 
 set folder = "imaps://hacklu.newborn@imap.gmail.com"
-set spoolfile =+INBOX 
+set spoolfile =+INBOX
 #set postponed=+Drafts
 set postponed = +[Gmail]/Drafts
 #set record=+Sent
@@ -16,6 +16,8 @@ set smtp_pass=$my_pw_gmail
 set from = "hacklu.newborn@gmail.com"
 set realname = 'Yue Lu'
 set use_from=yes
+
+set status_format="%r [Gmail]%f [%?M?%M/?%m] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ? %?b?%b more to go.?%> %r"
 
 ## Hook -- IMPORTANT!
 account-hook $folder "set imap_user=hacklu.newborn@gmail.com imap_pass=$my_pw_gmail"

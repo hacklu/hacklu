@@ -3,7 +3,6 @@ set header_cache= "~/.mutt/.cache/"
 set message_cachedir= "~/.mutt/.cache/"
 set certificate_file= "~/.mutt/certificates"
 
-#mailboxes imaps://imap.tongji.edu.cn/INBOX imaps://imap.tongji.edu.cn/family
 set imap_check_subscribed  #this set the mutt to fecth all IMAP folders, so we don't need above two line
 
 set ssl_starttls=yes
@@ -24,6 +23,7 @@ bind index gg first-entry
 bind index G last-entry
 bind index R group-reply
 bind index p recall-message
+bind index x toggle-new
 # Ctrl-R to mark all as read
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 bind index <space>  collapse-thread
@@ -59,7 +59,7 @@ unset markers #don't show '+' when long line
 set pager_index_lines = 0
 set pager_context     = 0
 
-# composing 
+# composing
 set fcc_attach
 set forward_format = "Fwd: %s"
 set include
@@ -112,7 +112,7 @@ set tmpdir="~/.mutt/.tmp"
 
 alternative_order text/plain text/html *
 #auto_view text/html application/msword
-auto_view text/html 
+auto_view text/html
 
 set mailcap_path = ~/.mutt/.mailcap
 #source ~/.mutt/.color
@@ -166,9 +166,8 @@ source "gpg -dq $HOME/.mutt/.my-pwds.gpg |"
 source "~/.mutt/tongji"
 # Here we use the $folder variable that has just been set in the sourced file.
 # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-folder-hook $folder 'source ~/.mutt/tongji'
+folder-hook 520luyue@tongji.edu.cn/ 'source ~/.mutt/tongji'
 
 ## ACCOUNT2 gmail
 source "~/.mutt/gmail"
 folder-hook hacklu.newborn@gmail.com/ 'source ~/.mutt/gmail'
-folder-hook hacklu.newborn@gmail.com/Family 'set realname="Yue Lu"'
