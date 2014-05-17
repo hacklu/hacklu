@@ -154,7 +154,7 @@ bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
 ## Shortcuts
-macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.mutt/tongji<enter><change-folder>!<enter>'
+#macro index,pager <f5> '<sync-mailbox><enter-command>source ~/.mutt/tongji<enter><change-folder>!<enter>'
 macro index,pager <f6> '<sync-mailbox><enter-command>source ~/.mutt/gmail<enter><change-folder>!<enter>'
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 
@@ -163,10 +163,10 @@ message-hook "~h multipart" "set mime_forward=ask-yes"
 
 source "gpg -dq $HOME/.mutt/.my-pwds.gpg |"
 ####accout1 tongji.edu.cn
-source "~/.mutt/tongji"
+#source "~/.mutt/tongji"
 # Here we use the $folder variable that has just been set in the sourced file.
 # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
-folder-hook 520luyue@tongji.edu.cn/ 'source ~/.mutt/tongji'
+#folder-hook 520luyue@tongji.edu.cn/ 'source ~/.mutt/tongji'
 
 ## ACCOUNT2 gmail
 source "~/.mutt/gmail"
