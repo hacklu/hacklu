@@ -1,4 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/hacklu/sdk/OCTEON-SDK-1.8.1/linux/embedded_rootfs/config'
-let g:netrw_dirhist_2='/home/hacklu/sdk/OCTEON-SDK-1.8.1/linux/embedded_rootfs/pkg_makefiles'

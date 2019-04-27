@@ -14,13 +14,82 @@ if v:progname =~? "evim"
   finish
 endif
 
+" from https://github.com/junegunn/vim-plug
+" 2019-3-29
+" Initialize plugin system
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git' ,{ 'on': ['GHDashboard', 'GHActivity'] }
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Unmanaged plugin (manually installed and updated)
+"Plug '~/my-prototype-plugin'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+"Plug 'liuchengxu/vim-which-key'
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'Chiel92/vim-autoformat'
+
+"for git support
+Plug 'tpope/vim-fugitive'
+
+Plug 'easymotion/vim-easymotion'
+
+"for quick-grep in
+Plug 'rking/ag.vim'
+
+"自动set paste，方便粘贴
+Plug 'roxma/vim-paste-easy'
+
+"extened % matching for many languages
+Plug 'vim-scripts/matchit.zip'
+
+"Plug 'vim-scripts/taglist.vim'
+call plug#end()
+
+
+"for ag-vim
+let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ag_working_path_mode="r"
+cnoreabbrev ag Ag
+
+"for YCM
+let g:ycm_enable_diagnostic_signs=0 "关闭丑陋的语法检查提示
+
+"for vim-autoformat
+"自动格式
+noremap <F8> :Autoformat<CR>
+
+"for vim-which-key
+"let g:mapleader = "\<Space>"
+"let g:maplocalleader = ','
+"nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+"nnoremap <silent> <localleader> :<c-u>WhichKey  ','<R>
+"end
+
+"for fzf
+"Ctrl + p 查看文件列表
+nmap <C-p> :Files<CR>
+"Ctrl + e 查看当前 Buffer，两次 Ctrl + e 快速切换上次打开的 Buffer
+nmap <C-e> :Buffers<CR>
+let g:fzf_action = { 'ctrl-e': 'edit' }
+"end
+
 set nocompatible
-"for vim Bundle (out)
-"filetype off
 
 set hidden                  " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
 set ignorecase smartcase    " 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感
-
 
 set fileencodings=utf-8,chinese,latin-1
 
@@ -31,11 +100,12 @@ else
 	set encoding=utf-8
 	set ff=unix
 	set tags=tags
-	map<silent> <F7> :TlistToggle<cr>
+	map<silent> <F2> :TlistToggle<cr>
 	"colorscheme darkburn
+	"colorscheme default
 	set background=dark
-	"colorscheme solarized
-	colorscheme default
+	let g:solarized_termcolors=256
+	colorscheme solarized
 endif
 
 " 在输入模式下移动光标，彻底抛弃方向键 大爱！！！！！！
@@ -54,6 +124,7 @@ set statusline=\ %<%F[%1*%M%*%n%R%H]%=\ %y\ %0(%{&fileformat}\ %{&encoding}\ %c:
 
 let g:winManagerWindowLayout='FileExplorer|TagList'
 nmap wm :WMToggle<cr> " add by hacklu
+
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 
@@ -63,9 +134,11 @@ set backspace=indent,eol,start
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
-  set backup		" keep a backup file
+  set nobackup		" keep a backup file
 endif
-set nobackup		" no backup!
+
+"set backupdir=~/.vimbackupfile "不要在当前目录下做备份
+
 set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -136,8 +209,11 @@ if !exists(":DiffOrig")
 endif
 
 
+set smartindent             " 开启新行时使用智能自动缩进
+"set autoindent
+"set cindent
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-"cscope setting 
+"cscope setting
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 "use plugin instead
 
@@ -150,11 +226,11 @@ map <silent> <F4> :set mouse=<cr>
 set t_Co=256
 "NERD_commenter.vim
 let mapleader=","
-map <silent> <F5> ,cc 
+map <silent> <F5> ,cc
 map <silent> <F6> ,cu
 
-map <silent> <F3> :%!xxd <cr>
-map <silent> <F4> :%!xxd -r <cr>
+map <F3> :%!xxd <cr>
+map <F4> :%!xxd -r <cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -162,9 +238,4 @@ cmap w!! w !sudo tee > /dev/null %
 "set EasyMotion Leader key to only one ,
 let mapleader=','
 let g:EasyMotion_leader_key ='<Leader>'
-hi link EasyMotionTarget ErrorMsg
-hi link EasyMotionShade Comment
 
-"set ctrlp to ctrl-m
-let g:ctrlp_map = '<c-m>'
-"let g:ctrlp_cmd = 'CtrlM'‘
