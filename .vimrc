@@ -239,3 +239,8 @@ cmap w!! w !sudo tee > /dev/null %
 let mapleader=','
 let g:EasyMotion_leader_key ='<Leader>'
 
+"for hex edit.  2019-7-21 add
+" Hex read
+nmap <Leader>hr :%!xxd<CR> :set filetype=xxd<CR>
+" Hex write
+nmap <Leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
