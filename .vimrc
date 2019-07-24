@@ -241,7 +241,9 @@ cmap w!! w !sudo tee > /dev/null %
 "set EasyMotion Leader key to only one ,
 let mapleader=','
 let g:EasyMotion_leader_key ='<Leader>'
-nmap s <Plug>(easymotion-s) "只按一个s就可以向前、向后搜索
+"只按一个s就可以向前、向后搜索
+"nmap s <Plug>(easymotion-s) 
+nmap s <Plug>(easymotion-overwin-f)
 
 "for hex edit.  2019-7-21 add
 " Hex read
