@@ -66,6 +66,8 @@ cnoreabbrev ag Ag
 
 "for YCM
 let g:ycm_enable_diagnostic_signs=0 "关闭丑陋的语法检查提示
+"for YouCompleteme GoTo
+nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "for vim-autoformat
 "自动格式
@@ -238,9 +240,12 @@ cmap w!! w !sudo tee > /dev/null %
 "set EasyMotion Leader key to only one ,
 let mapleader=','
 let g:EasyMotion_leader_key ='<Leader>'
+nmap s <Plug>(easymotion-s) "只按一个s就可以向前、向后搜索
 
 "for hex edit.  2019-7-21 add
 " Hex read
 nmap <Leader>hr :%!xxd<CR> :set filetype=xxd<CR>
 " Hex write
 nmap <Leader>hw :%!xxd -r<CR> :set binary<CR> :set filetype=<CR>
+
+
