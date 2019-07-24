@@ -101,7 +101,8 @@ if has("win32")
 else
 	set encoding=utf-8
 	set ff=unix
-	set tags=tags
+	set tags=tags;
+	set autochdir 
 	map<silent> <F2> :TlistToggle<cr>
 	"colorscheme darkburn
 	"colorscheme default
